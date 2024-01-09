@@ -25,6 +25,9 @@ jobs:
           name: 'cat'
           command: 'cat README.md'
       - run:
+          name: 'suuu'
+          command: 'apt-get install -y sudo'
+      - run:
           name: 'makefile'
           command: 'sudo apt-get install make'
       - run:
