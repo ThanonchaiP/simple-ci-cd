@@ -2,39 +2,39 @@
 # See: https://circleci.com/docs/configuration-reference
 version: 2.1
 
-orbs:
-  aws-ecr: circleci/aws-ecr@9.0.1
+# orbs:
+#   aws-ecr: circleci/aws-ecr@9.0.1
 
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/configuration-reference/#jobs
 jobs:
-  say-hello:
-    # Specify the execution environment. You can specify an image from Docker Hub or use one of our convenience images from CircleCI's Developer Hub.
-    # See: https://circleci.com/docs/configuration-reference/#executor-job
-    docker:
-      - image: cimg/base:stable
-    # Add steps to the job
-    # See: https://circleci.com/docs/configuration-reference/#steps
-    steps:
-      - checkout
-      - run:
-          name: 'Say hello'
-          command: 'echo Hello, World!'
+  # say-hello:
+  #   # Specify the execution environment. You can specify an image from Docker Hub or use one of our convenience images from CircleCI's Developer Hub.
+  #   # See: https://circleci.com/docs/configuration-reference/#executor-job
+  #   docker:
+  #     - image: cimg/base:stable
+  #   # Add steps to the job
+  #   # See: https://circleci.com/docs/configuration-reference/#steps
+  #   steps:
+  #     - checkout
+  #     - run:
+  #         name: 'Say hello'
+  #         command: 'echo Hello, World!'
   test-build:
-    docker:
-      - image: 654656542116.dkr.ecr.ap-southeast-1.amazonaws.com/cyber/non/test:0.0.1
-        aws_auth:
-          aws_access_key_id: AKIAZQ3ESCWSEGIAL62Z
-          aws_secret_access_key: 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
+    # docker:
+    #   - image: 654656542116.dkr.ecr.ap-southeast-1.amazonaws.com/cyber/non/test:0.0.1
+    #     aws_auth:
+    #       aws_access_key_id: AKIAZQ3ESCWSEGIAL62Z
+    #       aws_secret_access_key: 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
     steps:
       - checkout
         # Install via apk on alpine based images
       - run:
-          name: Install Docker client
-          command: apk add docker-cli
-      - run:
-          name: 'run container'
-          command: 'docker run -d -p 3000:3000/tcp 654656542116.dkr.ecr.ap-southeast-1.amazonaws.com/cyber/non/test'
+          name: Run makefile
+          command: make build-image VERSION=0.0.2
+      # - run:
+      #     name: 'run container'
+      #     command: 'docker run -d -p 3000:3000/tcp 654656542116.dkr.ecr.ap-southeast-1.amazonaws.com/cyber/non/test'
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
