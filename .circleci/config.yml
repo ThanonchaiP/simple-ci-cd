@@ -8,30 +8,19 @@ orbs:
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/configuration-reference/#jobs
 jobs:
-  say-hello:
-    # Specify the execution environment. You can specify an image from Docker Hub or use one of our convenience images from CircleCI's Developer Hub.
-    # See: https://circleci.com/docs/configuration-reference/#executor-job
-    docker:
-      - image: cibuilds/aws:1.16.1
-    # Add steps to the job
-    # See: https://circleci.com/docs/configuration-reference/#steps
+  aws-cli-cred-setup:
+    executor: aws-cli/default
     steps:
-      - checkout
-      - run:
-          name: 'ls'
-          command: 'ls'
-      - run:
-          name: 'cat'
-          command: 'cat README.md'
-      - run:
-          name: 'makefile'
-          command: 'make -v'
-
+      - aws-cli/setup:
+          aws-access-key-id: AWS_ACCESS_KEY
+          aws-secret-access-key: AWS_ACCESS_SECRET
+          aws-region: AWS_REGION_NAME
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
 workflows:
   say-hello-workflow:
     jobs:
+      - aws-cli-cred-setup
       - aws-ecr/build-and-push-image:
           context: aws-dev
           create-repo: true
