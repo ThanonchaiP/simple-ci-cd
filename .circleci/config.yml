@@ -10,7 +10,6 @@ workflows:
           account-url: 654656542116.dkr.ecr.ap-southeast-1.amazonaws.com
           aws-access-key-id: 'AKIAZQ3ESCWSEGIAL62Z'
           aws-secret-access-key: '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'
-          context: myContext
           path: .
           region: ap-southeast-1
           repo: cyber/non/test
