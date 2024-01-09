@@ -1,0 +1,2 @@
+export const API_ENDPOINT_ONEFENCE_BASE_URL = process.env
+  .NEXT_PUBLIC_API_ENDPOINT_ONEFENCE_URL as string;
