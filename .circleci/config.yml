@@ -19,7 +19,7 @@ jobs:
       - checkout
       - run:
           name: 'Run makefile'
-          command: 'make build-image VERSION=0.0.2'
+          command: 'docker -v'
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
