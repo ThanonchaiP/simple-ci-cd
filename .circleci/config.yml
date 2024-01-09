@@ -23,6 +23,9 @@ jobs:
   test-build:
     docker:
       - image: 654656542116.dkr.ecr.ap-southeast-1.amazonaws.com/cyber/non/test:0.0.1
+        aws_auth:
+          aws_access_key_id: AKIAZQ3ESCWSEGIAL62Z
+          aws_secret_access_key: 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
     steps:
       - checkout
       - run:
