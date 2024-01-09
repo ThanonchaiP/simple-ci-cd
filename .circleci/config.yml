@@ -16,7 +16,7 @@ workflows:
       - aws-cli-cred-setup:
           context: aws
       - aws-ecr/build-and-push-image:
-          context: aws-dev
+          # context: aws-dev
           create-repo: true
           dockerfile: Dockerfile
           path: .
