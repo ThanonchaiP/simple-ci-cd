@@ -20,7 +20,7 @@ jobs:
       - checkout
       - run:
           name: 'run makefile'
-          command: 'make build-image VERSION=0.0.2'
+          command: 'aws help'
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
