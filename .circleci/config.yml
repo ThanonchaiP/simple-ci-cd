@@ -20,10 +20,14 @@ jobs:
       - run:
           name: 'Say hello'
           command: 'echo Hello, World!'
-
   test-build:
     docker:
       - image: 654656542116.dkr.ecr.ap-southeast-1.amazonaws.com/cyber/non/test:0.0.1
+    steps:
+      - checkout
+      - run:
+          name: 'Say hello'
+          command: 'echo Hello, World!'
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
