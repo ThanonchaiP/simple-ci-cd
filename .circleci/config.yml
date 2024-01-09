@@ -2,6 +2,9 @@
 # See: https://circleci.com/docs/configuration-reference
 version: 2.1
 
+orbs:
+  aws-ecr: circleci/aws-ecr@9.0.1
+
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/configuration-reference/#jobs
 jobs:
@@ -18,9 +21,14 @@ jobs:
           name: 'Say hello'
           command: 'echo Hello, World!'
 
+  test-build:
+    docker:
+      - image: 654656542116.dkr.ecr.ap-southeast-1.amazonaws.com/cyber/non/test:0.0.1
+
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
 workflows:
   say-hello-workflow:
     jobs:
-      - say-hello
+      - test-build
+      # - say-hello
