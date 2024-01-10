@@ -98,7 +98,7 @@ jobs:
           name: 'Say hello'
           command: 'echo $GIT_COMMIT_MESSAGE'
       - aws-ecr/build-and-push-image:
-          attach-workspace: true
+          # attach-workspace: true
           dockerfile: Dockerfile
           # path: .
           repo: cyber/non/test
