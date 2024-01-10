@@ -27,7 +27,7 @@ workflows:
           filters:
             branches:
               only:
-                - main
+                -
           context: aws-dev
           dockerfile: Dockerfile
           path: .
