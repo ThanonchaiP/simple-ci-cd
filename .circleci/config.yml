@@ -4,13 +4,13 @@ orbs:
   aws-ecr: circleci/aws-ecr@8.1.3
 
 workflows:
-  filters:
-    branches:
-      only:
-        - main
   build_and_push_image:
     jobs:
       - aws-ecr/build-and-push-image:
+          filters:
+            branches:
+              only:
+                - main
           context: aws-dev
           dockerfile: Dockerfile
           path: .
