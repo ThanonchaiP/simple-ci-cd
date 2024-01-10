@@ -22,16 +22,17 @@ jobs:
 workflows:
   say-hello-workflow:
     jobs:
-      - aws-ecr/build-and-push-image:
-          filters:
-            branches:
-              only:
-                - main
-          context: aws-dev
-          dockerfile: Dockerfile
-          path: .
-          repo: cyber/non/test
-          tag: $GIT_COMMIT_MESSAGE
+      - say-hello
+      # - aws-ecr/build-and-push-image:
+      #     filters:
+      #       branches:
+      #         only:
+      #           - main
+      #     context: aws-dev
+      #     dockerfile: Dockerfile
+      #     path: .
+      #     repo: cyber/non/test
+      #     tag: $GIT_COMMIT_MESSAGE
 # version: 2.1
 
 # orbs:
