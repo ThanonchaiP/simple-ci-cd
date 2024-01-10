@@ -19,16 +19,16 @@ jobs:
           name: get Message
           command: echo $GIT_COMMIT_MESSAGE
 
-      - aws-ecr/build-and-push-image:
-          # filters:
-          #   branches:
-          #     only:
-          #       - main
-          context: aws-dev
-          dockerfile: Dockerfile
-          path: .
-          repo: cyber/non/test
-          tag: $GIT_COMMIT_MESSAGE
+      # - aws-ecr/build-and-push-image:
+      #     filters:
+      #       branches:
+      #         only:
+      #           - main
+      #     context: aws-dev
+      #     dockerfile: Dockerfile
+      #     path: .
+      #     repo: cyber/non/test
+      #     tag: $GIT_COMMIT_MESSAGE
 
 workflows:
   say-hello-workflow:
