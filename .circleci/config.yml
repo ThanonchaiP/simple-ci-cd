@@ -11,10 +11,10 @@ executors:
 jobs:
   say-hello:
     executor: basic
-    # filters:
-    #   branches:
-    #     only:
-    #       - main
+    filters:
+      branches:
+        only:
+          - main
     steps:
       - checkout
       - run:
@@ -52,14 +52,14 @@ workflows:
       # - checkeee:
       #     requires:
       #       - say-hello
-      # - aws-ecr/build-and-push-image:
-      #     requires:
-      #       - say-hello
-      #     context: aws-dev
-      #     dockerfile: Dockerfile
-      #     path: .
-      #     repo: cyber/non/test
-      #     tag: '0.0.3'
+      - aws-ecr/build-and-push-image:
+          requires:
+            - say-hello
+          context: aws-dev
+          dockerfile: Dockerfile
+          path: .
+          repo: cyber/non/test
+          tag: '0.0.3'
 # version: 2.1
 
 # orbs:
