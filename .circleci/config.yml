@@ -39,18 +39,18 @@ workflows:
   get-message-workflow:
     jobs:
       - test-get-message
-  build_and_push_image:
-    jobs:
-      - aws-ecr/build-and-push-image:
-          filters:
-            branches:
-              only:
-                - main
-          context: aws-dev
-          dockerfile: Dockerfile
-          path: .
-          repo: cyber/non/test
-          tag: $GIT_COMMIT_MESSAGE
+  # build_and_push_image:
+  #   jobs:
+  #     - aws-ecr/build-and-push-image:
+  #         filters:
+  #           branches:
+  #             only:
+  #               - main
+  #         context: aws-dev
+  #         dockerfile: Dockerfile
+  #         path: .
+  #         repo: cyber/non/test
+  #         tag: $GIT_COMMIT_MESSAGE
 # version: 2.1
 # orbs:
 #   aws-ecr: circleci/aws-ecr@8.1.3
