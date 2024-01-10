@@ -90,6 +90,7 @@ jobs:
     machine:
       image: ubuntu-2204:2022.07.1
     steps:
+      - checkout
       - attach_workspace:
           at: .
       - run: |
@@ -98,9 +99,9 @@ jobs:
           name: 'Say hello'
           command: 'echo $GIT_COMMIT_MESSAGE'
       - aws-ecr/build-and-push-image:
-          # attach-workspace: true
+          attach-workspace: true
           dockerfile: Dockerfile
-          # path: .
+          path: .
           repo: cyber/non/test
           tag: $GIT_COMMIT_MESSAGE
     # steps:
