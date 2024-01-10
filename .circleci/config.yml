@@ -103,7 +103,6 @@ jobs:
           path: .
           repo: cyber/non/test
           tag: $GIT_COMMIT_MESSAGE
-          workspace_root: .
     # steps:
     #   - checkout
     # - attach_workspace:
