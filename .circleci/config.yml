@@ -8,6 +8,10 @@ executors:
     docker:
       - image: cimg/base:stable
 
+machine:
+  image-node:
+    - image: cimg/node:16.10
+
 jobs:
   say-hello:
     executor: basic
@@ -29,7 +33,7 @@ jobs:
           paths:
             - bash.env
   checkeee:
-    executor: basic
+    machine: image-node
     steps:
       - checkout
       - attach_workspace:
