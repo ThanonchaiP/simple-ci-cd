@@ -98,6 +98,7 @@ jobs:
       - aws-ecr/build-and-push-image:
           requires:
             - say-hello
+          context: aws-dev
           attach-workspace: true
           context: aws-dev
           dockerfile: Dockerfile
