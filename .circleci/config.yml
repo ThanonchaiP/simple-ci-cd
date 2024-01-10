@@ -98,7 +98,6 @@ jobs:
           name: 'Say hello'
           command: 'echo $GIT_COMMIT_MESSAGE'
       - aws-ecr/build-and-push-image:
-          context: aws-dev
           attach-workspace: true
           dockerfile: Dockerfile
           path: .
@@ -121,6 +120,7 @@ workflows:
       - checkeee:
           requires:
             - say-hello
+          context: aws-dev
       # - build-push:
       #     machine:
       #       image: ubuntu-2204:2022.07.1
