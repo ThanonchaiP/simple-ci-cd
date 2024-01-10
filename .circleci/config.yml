@@ -30,7 +30,7 @@ jobs:
             - bash.env
   checkeee:
     machine:
-      image: cimg/node:16.10
+      image: ubuntu-2204:2022.07.1
     steps:
       - checkout
       - attach_workspace:
