@@ -11,11 +11,11 @@ executors:
 jobs:
   say-hello:
     executor: basic
-    filters:
-      branches:
-        only:
-          - main
     steps:
+      filters:
+        branches:
+          only:
+            - main
       - checkout
       - run:
           name: 'Say hello'
