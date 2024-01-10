@@ -7,17 +7,17 @@ orbs:
 #   say-hello:
 #     docker:
 #       - image: cimg/base:stable
-    # steps:
-    #   - checkout
-    #   - run:
-    #       name: 'Say hello'
-    #       command: 'echo Hello, World!!!!!'
-    #   - run:
-    #       name: get Message
-    #       command: echo "export GIT_COMMIT_MESSAGE=\"$(git log --format=%B -n 1 $CIRCLE_SHA1)\"" >> $BASH_ENV
-    #   - run:
-    #       name: get Message
-    #       command: echo $GIT_COMMIT_MESSAGE
+# steps:
+#   - checkout
+#   - run:
+#       name: 'Say hello'
+#       command: 'echo Hello, World!!!!!'
+#   - run:
+#       name: get Message
+#       command: echo "export GIT_COMMIT_MESSAGE=\"$(git log --format=%B -n 1 $CIRCLE_SHA1)\"" >> $BASH_ENV
+#   - run:
+#       name: get Message
+#       command: echo $GIT_COMMIT_MESSAGE
 
 workflows:
   say-hello-workflow:
@@ -33,16 +33,16 @@ workflows:
         - run:
             name: get Message
             command: echo $GIT_COMMIT_MESSAGE
-      - aws-ecr/build-and-push-image:
-          filters:
-            branches:
-              only:
-                - main
-          context: aws-dev
-          dockerfile: Dockerfile
-          path: .
-          repo: cyber/non/test
-          tag: $GIT_COMMIT_MESSAGE
+        - aws-ecr/build-and-push-image:
+            filters:
+              branches:
+                only:
+                  - main
+            context: aws-dev
+            dockerfile: Dockerfile
+            path: .
+            repo: cyber/non/test
+            tag: $GIT_COMMIT_MESSAGE
 # version: 2.1
 
 # orbs:
