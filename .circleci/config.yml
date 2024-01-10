@@ -3,10 +3,14 @@ version: 2.1
 orbs:
   aws-ecr: circleci/aws-ecr@8.1.3
 
-jobs:
-  say-hello:
+executors:
+  basic:
     docker:
       - image: cimg/base:stable
+
+jobs:
+  say-hello:
+    executor: basic
     # filters:
     #   branches:
     #     only:
@@ -28,26 +32,26 @@ jobs:
           root: .
           paths:
             - bash.env
-  checkeee:
-    docker:
-      - image: cimg/base:stable
-    steps:
-      - checkout
-      - attach_workspace:
-          at: .
-      - run: |
-          cat bash.env >> $BASH_ENV
-      - run:
-          name: 'Say hello'
-          command: 'echo $GIT_COMMIT_MESSAGE'
+  # checkeee:
+  #   executor: basic
+  #   steps:
+  #     - checkout
+  #     - attach_workspace:
+  #         at: .
+  #     - run: |
+  #         cat bash.env >> $BASH_ENV
+  #     - run:
+  #         name: 'Say hello'
+  #         command: 'echo $GIT_COMMIT_MESSAGE'
 
 workflows:
   say-hello-workflow:
     jobs:
       - say-hello
-      - checkeee:
-          requires:
-            - say-hello
+
+      # - checkeee:
+      #     requires:
+      #       - say-hello
       # - aws-ecr/build-and-push-image:
       #     requires:
       #       - say-hello
