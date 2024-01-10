@@ -8,7 +8,7 @@ jobs:
     docker:
       - image: cimg/base:stable
     steps:
-      # - checkout
+      - checkout
       - run:
           name: 'Say hello'
           command: 'echo Hello, World!!!!!'
@@ -19,10 +19,6 @@ jobs:
           name: get Message
           command: echo $GIT_COMMIT_MESSAGE
 
-workflows:
-  say-hello-workflow:
-    jobs:
-      - say-hello
       - aws-ecr/build-and-push-image:
           filters:
             branches:
@@ -33,6 +29,21 @@ workflows:
           path: .
           repo: cyber/non/test
           tag: $GIT_COMMIT_MESSAGE
+
+workflows:
+  say-hello-workflow:
+    jobs:
+      - say-hello
+      # - aws-ecr/build-and-push-image:
+      #     filters:
+      #       branches:
+      #         only:
+      #           - main
+      #     context: aws-dev
+      #     dockerfile: Dockerfile
+      #     path: .
+      #     repo: cyber/non/test
+      #     tag: $GIT_COMMIT_MESSAGE
 # version: 2.1
 
 # orbs:
