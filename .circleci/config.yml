@@ -22,17 +22,18 @@ jobs:
       - run:
           name: get Message
           command: echo $GIT_COMMIT_MESSAGE
+    check:
+      steps:
+        - checkout
+        - run:
+            name: 'Say hello'
+            command: 'echo $GIT_COMMIT_MESSAGE'
 
 workflows:
   say-hello-workflow:
     jobs:
       - say-hello
-      - check:
-          steps:
-            - checkout
-            - run:
-                name: 'Say hello'
-                command: 'echo $GIT_COMMIT_MESSAGE'
+      - check
       - aws-ecr/build-and-push-image:
           requires:
             - say-hello
