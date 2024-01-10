@@ -22,7 +22,7 @@ orbs:
 workflows:
   say-hello-workflow:
     jobs:
-      # - say-hello
+      - say-hello
       - run:
           name: get Message
           command: echo "export GIT_COMMIT_MESSAGE=\"$(git log --format=%B -n 1 $CIRCLE_SHA1)\"" >> $BASH_ENV
