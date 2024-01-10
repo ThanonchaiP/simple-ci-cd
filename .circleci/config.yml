@@ -25,6 +25,8 @@ jobs:
   checkeee:
     docker:
       - image: cimg/base:stable
+    requires:
+      - say-hello
     steps:
       - checkout
       - run:
