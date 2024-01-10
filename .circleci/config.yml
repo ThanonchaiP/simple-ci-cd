@@ -20,11 +20,11 @@ jobs:
           command: echo $GIT_COMMIT_MESSAGE
 
       - aws-ecr/build-and-push-image:
-          filters:
-            branches:
-              only:
-                - main
-          context: aws-dev
+          # filters:
+          #   branches:
+          #     only:
+          #       - main
+          # context: aws-dev
           dockerfile: Dockerfile
           path: .
           repo: cyber/non/test
