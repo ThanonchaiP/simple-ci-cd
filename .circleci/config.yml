@@ -33,6 +33,10 @@ jobs:
       - image: cimg/base:stable
     steps:
       - checkout
+      - attach_workspace:
+          at: .
+      - run: |
+          cat bash.env >> $BASH_ENV
       - run:
           name: 'Say hello'
           command: 'echo $GIT_COMMIT_MESSAGE'
