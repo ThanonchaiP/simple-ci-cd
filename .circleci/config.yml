@@ -12,10 +12,6 @@ jobs:
   say-hello:
     executor: basic
     steps:
-      filters:
-        branches:
-          only:
-            - main
       - checkout
       - run:
           name: 'Say hello'
@@ -32,34 +28,33 @@ jobs:
           root: .
           paths:
             - bash.env
-  # checkeee:
-  #   executor: basic
-  #   steps:
-  #     - checkout
-  #     - attach_workspace:
-  #         at: .
-  #     - run: |
-  #         cat bash.env >> $BASH_ENV
-  #     - run:
-  #         name: 'Say hello'
-  #         command: 'echo $GIT_COMMIT_MESSAGE'
+  checkeee:
+    executor: basic
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .
+      - run: |
+          cat bash.env >> $BASH_ENV
+      - run:
+          name: 'Say hello'
+          command: 'echo $GIT_COMMIT_MESSAGE'
 
 workflows:
   say-hello-workflow:
     jobs:
       - say-hello
-
-      # - checkeee:
-      #     requires:
-      #       - say-hello
-      - aws-ecr/build-and-push-image:
+      - checkeee:
           requires:
             - say-hello
-          context: aws-dev
-          dockerfile: Dockerfile
-          path: .
-          repo: cyber/non/test
-          tag: '0.0.3'
+      # - aws-ecr/build-and-push-image:
+      #     requires:
+      #       - say-hello
+      #     context: aws-dev
+      #     dockerfile: Dockerfile
+      #     path: .
+      #     repo: cyber/non/test
+      #     tag: '0.0.3'
 # version: 2.1
 
 # orbs:
