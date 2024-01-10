@@ -24,6 +24,8 @@ workflows:
     jobs:
       - say-hello
       - aws-ecr/build-and-push-image:
+          requires:
+            - say-hello
           filters:
             branches:
               only:
