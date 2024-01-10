@@ -1,21 +1,37 @@
 version: 2.1
 
-orbs:
-  aws-ecr: circleci/aws-ecr@8.1.3
+jobs:
+  say-hello:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - checkout
+      - run:
+          name: 'Say hello'
+          command: 'echo Hello, World!!!!!'
 
 workflows:
-  build_and_push_image:
+  say-hello-workflow:
     jobs:
-      - aws-ecr/build-and-push-image:
-          filters:
-            branches:
-              only:
-                - main
-          context: aws-dev
-          dockerfile: Dockerfile
-          path: .
-          repo: cyber/non/test
-          tag: '0.0.2'
+      - say-hello
+# version: 2.1
+
+# orbs:
+#   aws-ecr: circleci/aws-ecr@8.1.3
+
+# workflows:
+#   build_and_push_image:
+#     jobs:
+#       - aws-ecr/build-and-push-image:
+#           filters:
+#             branches:
+#               only:
+#                 - main
+#           context: aws-dev
+#           dockerfile: Dockerfile
+#           path: .
+#           repo: cyber/non/test
+#           tag: '0.0.2'
 # version: 2.1
 # orbs:
 #   aws-ecr: circleci/aws-ecr@8.1.3
