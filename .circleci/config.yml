@@ -32,7 +32,7 @@ workflows:
           dockerfile: Dockerfile
           path: .
           repo: cyber/non/test
-          tag: '0.0.2'
+          tag: $GIT_COMMIT_MESSAGE
 # version: 2.1
 
 # orbs:
