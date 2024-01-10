@@ -22,7 +22,7 @@ jobs:
       - run:
           name: get Message
           command: echo $GIT_COMMIT_MESSAGE
-    check:
+    checkeee:
       steps:
         - checkout
         - run:
@@ -33,7 +33,7 @@ workflows:
   say-hello-workflow:
     jobs:
       - say-hello
-      - check
+      - checkeee
       - aws-ecr/build-and-push-image:
           requires:
             - say-hello
