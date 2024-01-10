@@ -11,10 +11,11 @@ on:
 workflows:
   build_and_push_image:
     jobs:
-      branches:
-        only:
-          - develop
       - aws-ecr/build-and-push-image:
+          filters:
+            branches:
+              only:
+                - main
           context: aws-dev
           dockerfile: Dockerfile
           path: .
