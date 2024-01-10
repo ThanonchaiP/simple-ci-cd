@@ -100,7 +100,7 @@ jobs:
       - aws-ecr/build-and-push-image:
           attach-workspace: true
           dockerfile: Dockerfile
-          path: .
+          # path: .
           repo: cyber/non/test
           tag: $GIT_COMMIT_MESSAGE
     # steps:
