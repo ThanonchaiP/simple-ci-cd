@@ -24,7 +24,7 @@ jobs:
           #   branches:
           #     only:
           #       - main
-          # context: aws-dev
+          context: aws-dev
           dockerfile: Dockerfile
           path: .
           repo: cyber/non/test
