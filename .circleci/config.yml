@@ -22,6 +22,8 @@ jobs:
       - run:
           name: get Message
           command: echo $GIT_COMMIT_MESSAGE
+      - run: |
+          cp $BASH_ENV bash.env
       - persist_to_workspace:
           root: .
           paths:
