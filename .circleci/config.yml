@@ -9,26 +9,20 @@ executors:
       - image: cimg/base:stable
 
 jobs:
-  say-hello:
+  setup-env:
     executor: basic
     steps:
       - checkout
       - run:
-          name: 'Say hello'
-          command: 'echo Hello, World!!!!!'
-      - run:
-          name: get Message
+          name: Get message
           command: echo "export GIT_COMMIT_MESSAGE=\"$(git log --format=%B -n 1 $CIRCLE_SHA1)\"" >> $BASH_ENV
-      - run:
-          name: get Message
-          command: echo $GIT_COMMIT_MESSAGE
       - run: |
           cp $BASH_ENV bash.env
       - persist_to_workspace:
           root: .
           paths:
             - bash.env
-  checkeee:
+  build-and-push:
     machine:
       image: ubuntu-2204:2022.07.1
     steps:
@@ -38,7 +32,7 @@ jobs:
       - run: |
           cat bash.env >> $BASH_ENV
       - run:
-          name: 'Say hello'
+          name: 'Check environment git commit message'
           command: 'echo $GIT_COMMIT_MESSAGE'
       - aws-ecr/build-and-push-image:
           attach-workspace: true
@@ -48,10 +42,14 @@ jobs:
           tag: $GIT_COMMIT_MESSAGE
 
 workflows:
-  say-hello-workflow:
+  build-console-ui-workflow:
     jobs:
-      - say-hello
-      - checkeee:
+      - setup-env:
+          filters:
+            branches:
+              only:
+                - develop
+      - build-and-push:
           requires:
-            - say-hello
+            - setup-env
           context: aws-dev
