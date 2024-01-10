@@ -96,17 +96,6 @@ jobs:
       - run:
           name: 'Say hello'
           command: 'echo $GIT_COMMIT_MESSAGE'
-  aws-ecr/build-and-push-image:
-    executor: basic
-    steps:
-      - checkout
-      - attach_workspace:
-          at: .
-      - run: |
-          cat bash.env >> $BASH_ENV
-      - run:
-          name: 'Say hello'
-          command: 'echo $GIT_COMMIT_MESSAGE'
 
 workflows:
   say-hello-workflow:
@@ -115,12 +104,31 @@ workflows:
       - checkeee:
           requires:
             - say-hello
-      - aws-ecr/build-and-push-image:
-          requires:
-            - say-hello
-          attach-workspace: true
-          context: aws-dev
-          dockerfile: Dockerfile
-          path: .
-          repo: cyber/non/test
-          tag: $GIT_COMMIT_MESSAGE
+      - build-push:
+          machine:
+            image: ubuntu-2204:2022.07.1
+          steps:
+            - run: |
+                cat bash.env >> $BASH_ENV
+            - run:
+                name: 'Say hello'
+                command: 'echo $GIT_COMMIT_MESSAGE'
+            - aws-ecr/build-and-push-image:
+                requires:
+                  - say-hello
+                attach-workspace: true
+                context: aws-dev
+                dockerfile: Dockerfile
+                path: .
+                repo: cyber/non/test
+                tag: $GIT_COMMIT_MESSAGE
+
+      # - aws-ecr/build-and-push-image:
+      #     requires:
+      #       - say-hello
+      #     attach-workspace: true
+      #     context: aws-dev
+      #     dockerfile: Dockerfile
+      #     path: .
+      #     repo: cyber/non/test
+      #     tag: $GIT_COMMIT_MESSAGE
