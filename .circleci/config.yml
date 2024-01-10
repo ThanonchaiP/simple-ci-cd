@@ -20,6 +20,16 @@ workflows:
   say-hello-workflow:
     jobs:
       - say-hello
+      - aws-ecr/build-and-push-image:
+          filters:
+            branches:
+              only:
+                - main
+          context: aws-dev
+          dockerfile: Dockerfile
+          path: .
+          repo: cyber/non/test
+          tag: '0.0.2'
 # version: 2.1
 
 # orbs:
@@ -28,16 +38,16 @@ workflows:
 # workflows:
 #   build_and_push_image:
 #     jobs:
-#       - aws-ecr/build-and-push-image:
-#           filters:
-#             branches:
-#               only:
-#                 - main
-#           context: aws-dev
-#           dockerfile: Dockerfile
-#           path: .
-#           repo: cyber/non/test
-#           tag: '0.0.2'
+# - aws-ecr/build-and-push-image:
+#     filters:
+#       branches:
+#         only:
+#           - main
+#     context: aws-dev
+#     dockerfile: Dockerfile
+#     path: .
+#     repo: cyber/non/test
+#     tag: '0.0.2'
 # version: 2.1
 # orbs:
 #   aws-ecr: circleci/aws-ecr@8.1.3
