@@ -14,6 +14,10 @@ jobs:
       - image: cimg/base:stable
     steps:
       - checkout
+        filters:
+          branches:
+            only:
+              - main
       - run:
           name: 'Say hello'
           command: 'echo Hello, World!!!!!'
@@ -27,6 +31,10 @@ jobs:
 workflows:
   say-hello-workflow:
     jobs:
+      # filters:
+      #   branches:
+      #     only:
+      #       - main
       - say-hello
       - aws-ecr/build-and-push-image:
           requires:
@@ -35,7 +43,7 @@ workflows:
           dockerfile: Dockerfile
           path: .
           repo: cyber/non/test
-          tag: $GIT_COMMIT_MESSAGE
+          tag: '0.0.3'
 # version: 2.1
 
 # orbs:
