@@ -24,8 +24,6 @@ workflows:
     jobs:
       - say-hello
       - aws-ecr/build-and-push-image:
-          steps:
-            - checkout
           filters:
             branches:
               only:
