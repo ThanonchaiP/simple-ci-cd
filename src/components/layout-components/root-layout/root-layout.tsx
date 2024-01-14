@@ -8,16 +8,19 @@ import type { FC, ReactNode } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import { NextAppDirEmotionCacheProvider } from 'tss-react/next/appDir';
 
+import { SettingsProvider } from '@/contexts/settings';
 import { createTheme } from '@/theme';
+import { Settings } from '@/types/setting';
 
 interface RootLayoutProps {
   children: ReactNode;
+  settings?: Settings;
 }
 
 export const RootLayout: FC<RootLayoutProps> = (
   props: RootLayoutProps
 ) => {
-  const { children } = props;
+  const { children, settings } = props;
 
   const theme = createTheme({
     colorPreset: 'blue',
@@ -28,12 +31,14 @@ export const RootLayout: FC<RootLayoutProps> = (
       options={{ key: 'css' }}
     >
       <LocalizationProvider dateAdapter={AdapterDayjs}>
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
-          <ErrorBoundary fallback={<></>}>
-            {children}
-          </ErrorBoundary>
-        </ThemeProvider>
+        <SettingsProvider settings={settings}>
+          <ThemeProvider theme={theme}>
+            <CssBaseline />
+            <ErrorBoundary fallback={<></>}>
+              {children}
+            </ErrorBoundary>
+          </ThemeProvider>
+        </SettingsProvider>
       </LocalizationProvider>
     </NextAppDirEmotionCacheProvider>
   );

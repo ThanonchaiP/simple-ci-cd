@@ -9,6 +9,7 @@ import {
   Link,
 } from '@mui/material';
 import NextLink from 'next/link';
+import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import {
   FormContainer,
@@ -21,12 +22,19 @@ import {
 } from '@/features/auth';
 
 const LoginPage = () => {
+  const router = useRouter();
+
   const form = useForm<Credential>({
     resolver: zodResolver(credentialSchema),
+    defaultValues: {
+      email: 'abc123@gmail.com',
+      password: 'cyber@log',
+    },
   });
 
   const onSubmit = (data: Credential) => {
     console.log(data);
+    router.push('/apps', { scroll: false });
   };
 
   return (
@@ -57,6 +65,7 @@ const LoginPage = () => {
           <TextFieldElement
             autoFocus
             fullWidth
+            required
             name="email"
             label="Email Address"
             type="text"
@@ -64,6 +73,7 @@ const LoginPage = () => {
           />
           <TextFieldElement
             fullWidth
+            required
             name="password"
             label="Password"
             type="password"

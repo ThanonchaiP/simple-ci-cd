@@ -12,18 +12,18 @@ import {
 } from 'react-hook-form-mui';
 import { z } from 'zod';
 
-export const credentialSchema = z.object({
-  email: z.string().email(),
-});
+type Form = {
+  email: string;
+};
 
-export type Credential = z.infer<typeof credentialSchema>;
-
-const ForgotPassword = () => {
-  const form = useForm<Credential>({
-    resolver: zodResolver(credentialSchema),
+const ForgotPasswordPage = () => {
+  const form = useForm<Form>({
+    resolver: zodResolver(
+      z.object({ email: z.string().email() })
+    ),
   });
 
-  const onSubmit = (data: Credential) => {
+  const onSubmit = (data: Form) => {
     console.log(data);
   };
 
@@ -51,6 +51,7 @@ const ForgotPassword = () => {
         <ArrowBackIcon />
         Back
       </Link>
+
       <Box
         sx={{
           backgroundColor: '#fff',
@@ -97,4 +98,4 @@ const ForgotPassword = () => {
   );
 };
 
-export default ForgotPassword;
+export default ForgotPasswordPage;

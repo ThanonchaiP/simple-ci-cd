@@ -89,6 +89,5 @@ export const createTheme = (
   if (config.responsiveFontSizes) {
     theme = responsiveFontSizes(theme);
   }
-
   return theme;
 };

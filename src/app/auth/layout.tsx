@@ -7,8 +7,9 @@ import {
   Stack,
   Link,
 } from '@mui/material';
-import Image from 'next/image';
 import NextLink from 'next/link';
+
+import { Logo } from '@/components/util-components/logo';
 
 const Wrapper = styled('div')({
   backgroundImage: `url(/img/gradient-bg.svg)`,
@@ -53,14 +54,9 @@ const AuthLayout = ({
                 color: '#000',
               }}
               component={NextLink}
-              href="/"
+              href="/apps"
             >
-              <Image
-                src="/img/onefence-logo-sm.png"
-                width={24}
-                height={24}
-                alt="โลโก้ onefence"
-              />
+              <Logo width={24} height={24} />
               <Box sx={{ display: 'flex', gap: '4px' }}>
                 OneFence
                 <span style={{ color: '#3364FD' }}>

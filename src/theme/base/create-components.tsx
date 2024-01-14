@@ -53,10 +53,11 @@ export const createComponents = (): Components => {
     MuiCardContent: {
       styleOverrides: {
         root: {
-          padding: '32px 24px',
-          '&:last-child': {
-            paddingBottom: '32px',
-          },
+          padding: '24px',
+          // padding: '32px 24px',
+          // '&:last-child': {
+          //   paddingBottom: '32px',
+          // },
         },
       },
     },
@@ -281,6 +282,11 @@ export const createComponents = (): Components => {
       defaultProps: {
         underline: 'hover',
       },
+      styleOverrides: {
+        root: {
+          textDecoration: 'none',
+        },
+      },
     },
     MuiListItemIcon: {
       styleOverrides: {
@@ -319,6 +325,7 @@ export const createComponents = (): Components => {
           fontWeight: 500,
           lineHeight: 1.71,
           minWidth: 'auto',
+          minHeight: '47px',
           paddingLeft: 0,
           paddingRight: 0,
           textTransform: 'none',
