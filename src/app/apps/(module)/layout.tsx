@@ -18,7 +18,12 @@ const ModuleLayout = ({ children }: LayoutProps) => {
     <VerticalLayout
       sections={getNavigation(currentModule)}
     >
-      <Box sx={{ padding: '28px 24px' }}>{children}</Box>
+      <Box
+        component={'main'}
+        sx={{ padding: '28px 24px' }}
+      >
+        {children}
+      </Box>
     </VerticalLayout>
   );
 };

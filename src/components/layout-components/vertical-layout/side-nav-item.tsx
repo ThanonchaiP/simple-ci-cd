@@ -3,7 +3,6 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import Box from '@mui/material/Box';
 import ButtonBase from '@mui/material/ButtonBase';
 import Collapse from '@mui/material/Collapse';
-import SvgIcon from '@mui/material/SvgIcon';
 import PropTypes from 'prop-types';
 import type { FC, ReactNode } from 'react';
 import { useCallback, useState } from 'react';
@@ -22,6 +21,14 @@ interface SideNavItemProps {
   path?: string;
   title: string;
 }
+
+const svgProps = {
+  sx: {
+    color: 'var(--nav-item-chevron-color)',
+    fontSize: 16,
+    ml: 2,
+  },
+};
 
 export const SideNavItem: FC<SideNavItemProps> = (
   props
@@ -151,19 +158,11 @@ export const SideNavItem: FC<SideNavItemProps> = (
           >
             {title}
           </Box>
-          <SvgIcon
-            sx={{
-              color: 'var(--nav-item-chevron-color)',
-              fontSize: 16,
-              ml: 2,
-            }}
-          >
-            {open ? (
-              <KeyboardArrowDownIcon />
-            ) : (
-              <ChevronRightIcon />
-            )}
-          </SvgIcon>
+          {open ? (
+            <KeyboardArrowDownIcon {...svgProps} />
+          ) : (
+            <ChevronRightIcon {...svgProps} />
+          )}
         </ButtonBase>
         <Collapse in={open} sx={{ mt: 0.5 }}>
           {children}
@@ -184,6 +183,7 @@ export const SideNavItem: FC<SideNavItemProps> = (
       : {
           component: RouterLink,
           href: path,
+          scroll: true,
         }
     : {};
 

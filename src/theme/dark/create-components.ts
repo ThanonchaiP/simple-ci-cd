@@ -193,5 +193,13 @@ export const createComponents = ({
         },
       },
     },
+    MuiDataGrid: {
+      styleOverrides: {
+        columnHeaders: {
+          backgroundColor: palette.neutral![800],
+          color: palette.neutral![400],
+        },
+      },
+    },
   };
 };

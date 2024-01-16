@@ -101,3 +101,8 @@ export const error = withAlphas({
   darkest: '#7A271A',
   contrastText: '#FFFFFF',
 });
+
+export const critical = error;
+export const high = warning;
+export const medium = info;
+export const low = success;

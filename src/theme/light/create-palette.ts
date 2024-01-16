@@ -9,6 +9,10 @@ import {
   neutral,
   success,
   warning,
+  critical,
+  high,
+  medium,
+  low,
 } from '../colors';
 import { getPrimary } from '../utils';
 
@@ -49,5 +53,9 @@ export const createPalette = (
       disabled: alpha(neutral[900], 0.38),
     },
     warning,
+    critical,
+    high,
+    medium,
+    low,
   };
 };

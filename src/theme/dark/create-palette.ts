@@ -8,6 +8,10 @@ import {
   neutral,
   success,
   warning,
+  critical,
+  high,
+  medium,
+  low,
 } from '../colors';
 import { getPrimary } from '../utils';
 
@@ -48,5 +52,9 @@ export const createPalette = (
       disabled: 'rgba(255, 255, 255, 0.48)',
     },
     warning,
+    critical,
+    high,
+    medium,
+    low,
   };
 };

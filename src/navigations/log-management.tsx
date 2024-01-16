@@ -1,4 +1,5 @@
 import DashboardIcon from '@mui/icons-material/Dashboard';
+import WarningAmberIcon from '@mui/icons-material/WarningAmber';
 
 import {
   APP_PATH,
@@ -16,6 +17,11 @@ export const logManagementItem: Section[] = [
         title: 'Dashboard',
         icon: <DashboardIcon />,
         path: `${path}/dashboard`,
+      },
+      {
+        title: 'Detection Rule',
+        icon: <WarningAmberIcon />,
+        path: `${path}/detection-rule`,
       },
     ],
   },

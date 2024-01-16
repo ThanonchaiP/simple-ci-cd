@@ -6,12 +6,7 @@ export const CYBER_SECURITY_PATH = '/cyber-security';
 // CYBER_SECURITY:
 export const CYBER_SECURITY_LOG_MANAGEMENT_PATH = `/log-management`;
 export const CYBER_SECURITY_SIEM_PATH = '/siem';
-export const CYBER_SECURITY_SOAR_PATH = '/soar';
-export const CYBER_SECURITY_VULNERABILITY_MANAGEMENT_PATH = `/vulnerability-management`;
-export const CYBER_SECURITY_CYBER_SECURITY_ASSET_PATH = `/security-asset`;
 export const CYBER_SECURITY_CYBER_THREAT_INTELLIGENCE_PATH = `/threat-intelligence`;
-export const CYBER_SECURITY_ASSESSMENT_AUTOMATION_PATH = `/assessment-automation`;
-export const CYBER_SECURITY_AUDIT_LOG = `/audit-log`;
 
 export const APPS: Module[] = [
   {

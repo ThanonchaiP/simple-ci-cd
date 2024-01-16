@@ -6,9 +6,13 @@ import Popover from '@mui/material/Popover';
 import Typography from '@mui/material/Typography';
 import Image from 'next/image';
 import PropTypes from 'prop-types';
-import type { FC } from 'react';
+import { useCallback, type FC } from 'react';
+import { toast } from 'react-hot-toast';
+import { useTranslation } from 'react-i18next';
 
-type Language = 'en' | 'de' | 'es';
+import { tokens } from '@/locales/tokens';
+
+type Language = 'en' | 'th';
 
 type LanguageOptions = {
   [key in Language]: {
@@ -22,13 +26,9 @@ const languageOptions: LanguageOptions = {
     icon: '/assets/flags/flag-uk.svg',
     label: 'English',
   },
-  de: {
+  th: {
     icon: '/assets/flags/flag-de.svg',
-    label: 'German',
-  },
-  es: {
-    icon: '/assets/flags/flag-es.svg',
-    label: 'Spanish',
+    label: 'Thailand',
   },
 };
 
@@ -47,6 +47,21 @@ export const LanguagePopover: FC<LanguagePopoverProps> = (
     open = false,
     ...other
   } = props;
+
+  const { i18n, t } = useTranslation();
+
+  const handleChange = useCallback(
+    async (language: Language): Promise<void> => {
+      onClose?.();
+      await i18n.changeLanguage(language);
+      const message = t(
+        tokens.common.languageChanged
+      ) as string;
+      toast.success(message);
+    },
+
+    [onClose, i18n, t]
+  );
 
   return (
     <Popover
@@ -70,7 +85,10 @@ export const LanguagePopover: FC<LanguagePopoverProps> = (
           const option = languageOptions[language];
 
           return (
-            <MenuItem key={language}>
+            <MenuItem
+              key={language}
+              onClick={() => handleChange(language)}
+            >
               <ListItemIcon>
                 <Box
                   sx={{

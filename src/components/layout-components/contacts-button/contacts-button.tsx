@@ -1,6 +1,5 @@
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import IconButton from '@mui/material/IconButton';
-import SvgIcon from '@mui/material/SvgIcon';
 import Tooltip from '@mui/material/Tooltip';
 import type { FC } from 'react';
 
@@ -16,9 +15,7 @@ export const ContactsButton: FC = () => {
           onClick={popover.handleOpen}
           ref={popover.anchorRef}
         >
-          <SvgIcon>
-            <PermIdentityIcon />
-          </SvgIcon>
+          <PermIdentityIcon />
         </IconButton>
       </Tooltip>
     </>
