@@ -2,7 +2,6 @@ import FaceIcon from '@mui/icons-material/Face';
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import ButtonBase from '@mui/material/ButtonBase';
-import SvgIcon from '@mui/material/SvgIcon';
 import type { FC } from 'react';
 
 import { usePopover } from '@/hooks/use-popover';
@@ -36,9 +35,7 @@ export const AccountButton: FC = () => {
           }}
           alt="profile"
         >
-          <SvgIcon>
-            <FaceIcon />
-          </SvgIcon>
+          <FaceIcon />
         </Avatar>
       </Box>
       <AccountPopover

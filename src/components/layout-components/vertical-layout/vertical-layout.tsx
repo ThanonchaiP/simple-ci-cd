@@ -3,6 +3,7 @@ import type { Theme } from '@mui/material/styles/createTheme';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import PropTypes from 'prop-types';
 import type { FC, ReactNode } from 'react';
+import { ErrorBoundary } from 'react-error-boundary';
 
 import { Section } from '@/types/navigation';
 import type { NavColor } from '@/types/setting';
@@ -62,7 +63,9 @@ export const VerticalLayout: FC<VerticalLayoutProps> = (
       )}
       <VerticalLayoutRoot>
         <VerticalLayoutContainer>
-          {children}
+          <ErrorBoundary fallback={<></>}>
+            {children}
+          </ErrorBoundary>
         </VerticalLayoutContainer>
       </VerticalLayoutRoot>
     </>

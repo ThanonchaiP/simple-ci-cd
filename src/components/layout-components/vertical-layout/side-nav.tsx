@@ -4,7 +4,6 @@ import Button from '@mui/material/Button';
 import Drawer from '@mui/material/Drawer';
 import Stack from '@mui/material/Stack';
 import { useTheme } from '@mui/material/styles';
-import SvgIcon from '@mui/material/SvgIcon';
 import Typography from '@mui/material/Typography';
 import PropTypes from 'prop-types';
 import type { FC } from 'react';
@@ -324,11 +323,7 @@ export const SideNav: FC<SideNavProps> = (props) => {
               component="a"
               fullWidth
               href={'/'}
-              startIcon={
-                <SvgIcon>
-                  <UploadFileIcon />
-                </SvgIcon>
-              }
+              startIcon={<UploadFileIcon />}
               target="_blank"
               variant="contained"
             >

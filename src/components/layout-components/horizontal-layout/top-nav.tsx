@@ -3,7 +3,6 @@ import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import Stack from '@mui/material/Stack';
 import type { Theme } from '@mui/material/styles/createTheme';
-import SvgIcon from '@mui/material/SvgIcon';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import PropTypes from 'prop-types';
 import type { FC } from 'react';
@@ -77,9 +76,7 @@ export const TopNav: FC<TopNavProps> = (props) => {
         >
           {!mdUp && sections.length > 0 && (
             <IconButton onClick={onMobileNav}>
-              <SvgIcon>
-                <MenuIcon />
-              </SvgIcon>
+              <MenuIcon />
             </IconButton>
           )}
           <Box

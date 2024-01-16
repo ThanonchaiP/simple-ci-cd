@@ -8,18 +8,19 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Popover from '@mui/material/Popover';
-import SvgIcon from '@mui/material/SvgIcon';
 import Typography from '@mui/material/Typography';
 import PropTypes from 'prop-types';
 import type { FC } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { RouterLink } from '@/components/util-components/router-link';
 import { useRouter } from '@/hooks/use-router';
+import { tokens } from '@/locales/tokens';
 
 interface AccountPopoverProps {
   anchorEl: null | Element;
-  onClose?: () => void;
   open?: boolean;
+  onClose?: () => void;
 }
 
 export const AccountPopover: FC<AccountPopoverProps> = (
@@ -27,6 +28,7 @@ export const AccountPopover: FC<AccountPopoverProps> = (
 ) => {
   const { anchorEl, onClose, open, ...other } = props;
   const router = useRouter();
+  const { t } = useTranslation();
 
   return (
     <Popover
@@ -65,9 +67,7 @@ export const AccountPopover: FC<AccountPopoverProps> = (
           }}
         >
           <ListItemIcon>
-            <SvgIcon fontSize="small">
-              <PersonOutlineIcon />
-            </SvgIcon>
+            <PersonOutlineIcon fontSize="small" />
           </ListItemIcon>
           <ListItemText
             primary={
@@ -88,9 +88,7 @@ export const AccountPopover: FC<AccountPopoverProps> = (
           }}
         >
           <ListItemIcon>
-            <SvgIcon fontSize="small">
-              <SettingsIcon />
-            </SvgIcon>
+            <SettingsIcon fontSize="small" />
           </ListItemIcon>
           <ListItemText
             primary={
@@ -111,9 +109,7 @@ export const AccountPopover: FC<AccountPopoverProps> = (
           }}
         >
           <ListItemIcon>
-            <SvgIcon fontSize="small">
-              <CreditCardIcon />
-            </SvgIcon>
+            <CreditCardIcon fontSize="small" />
           </ListItemIcon>
           <ListItemText
             primary={
@@ -140,7 +136,7 @@ export const AccountPopover: FC<AccountPopoverProps> = (
           }}
           onClick={() => router.push('/auth/login')}
         >
-          Logout
+          {t(tokens.common.logout)}
         </Button>
       </Box>
     </Popover>

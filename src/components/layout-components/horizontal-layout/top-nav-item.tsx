@@ -4,7 +4,6 @@ import Box from '@mui/material/Box';
 import ButtonBase from '@mui/material/ButtonBase';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
-import SvgIcon from '@mui/material/SvgIcon';
 import PropTypes from 'prop-types';
 import type { FC, ReactNode } from 'react';
 
@@ -56,12 +55,10 @@ const renderChildItems = ({
                   },
                 }}
               />
-              <SvgIcon
+              <ChevronRightIcon
                 fontSize="small"
                 sx={{ color: 'neutral.400' }}
-              >
-                <ChevronRightIcon />
-              </SvgIcon>
+              />
             </ListItemButton>
           </DropdownTrigger>
           <DropdownMenu
@@ -224,15 +221,13 @@ export const TopNavItem: FC<TopNavItemProps> = (
               >
                 {title}
               </Box>
-              <SvgIcon
+              <KeyboardArrowDownIcon
                 sx={{
                   color: 'var(--nav-item-chevron-color)',
                   fontSize: 16,
                   ml: 1,
                 }}
-              >
-                <KeyboardArrowDownIcon />
-              </SvgIcon>
+              />
             </ButtonBase>
           </li>
         </DropdownTrigger>

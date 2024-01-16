@@ -1,3 +1,5 @@
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import { IconButton } from '@mui/material';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
@@ -36,6 +38,12 @@ export const TenantSwitch: FC<TenantSwitchProps> = (
             Modules
           </Typography>
         </Box>
+        <IconButton
+          onClick={popover.handleOpen}
+          ref={popover.anchorRef}
+        >
+          <KeyboardArrowDownIcon sx={{ fontSize: 16 }} />
+        </IconButton>
       </Stack>
       <TenantPopover
         anchorEl={popover.anchorRef.current}

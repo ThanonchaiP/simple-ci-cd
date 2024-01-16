@@ -24,6 +24,10 @@ declare module '@mui/material/styles/createPalette' {
 
   interface Palette {
     neutral: ColorRange;
+    critical: PaletteColor;
+    high: PaletteColor;
+    medium: PaletteColor;
+    low: PaletteColor;
   }
 
   interface PaletteColor {
@@ -38,6 +42,10 @@ declare module '@mui/material/styles/createPalette' {
 
   interface PaletteOptions {
     neutral?: ColorRange;
+    critical?: PaletteColor;
+    high?: PaletteColor;
+    medium?: PaletteColor;
+    low?: PaletteColor;
   }
 
   interface TypeBackground {

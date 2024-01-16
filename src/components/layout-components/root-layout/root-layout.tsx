@@ -8,9 +8,12 @@ import type { FC, ReactNode } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import { NextAppDirEmotionCacheProvider } from 'tss-react/next/appDir';
 
+import { Toaster } from '@/components/util-components/toaster';
 import { SettingsProvider } from '@/contexts/settings';
 import { createTheme } from '@/theme';
 import { Settings } from '@/types/setting';
+
+import '@/locales/i18n';
 
 interface RootLayoutProps {
   children: ReactNode;
@@ -37,6 +40,7 @@ export const RootLayout: FC<RootLayoutProps> = (
             <ErrorBoundary fallback={<></>}>
               {children}
             </ErrorBoundary>
+            <Toaster />
           </ThemeProvider>
         </SettingsProvider>
       </LocalizationProvider>

@@ -3,7 +3,6 @@ import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import Stack from '@mui/material/Stack';
 import type { Theme } from '@mui/material/styles/createTheme';
-import SvgIcon from '@mui/material/SvgIcon';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { alpha } from '@mui/system/colorManipulator';
 import PropTypes from 'prop-types';
@@ -64,9 +63,7 @@ export const TopNav: FC<TopNavProps> = (props) => {
         >
           {!lgUp && (
             <IconButton onClick={onMobileNavOpen}>
-              <SvgIcon>
-                <MenuIcon />
-              </SvgIcon>
+              <MenuIcon />
             </IconButton>
           )}
           <SearchButton />

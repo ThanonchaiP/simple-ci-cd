@@ -4,7 +4,7 @@ import { Inter } from 'next/font/google';
 import { RootLayout } from '@/components/layout-components/root-layout';
 import { NProgress } from '@/components/util-components/nprogress';
 
-import './globals.css';
+import '../globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -48,12 +48,10 @@ export default function Layout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <main>
-          <RootLayout>
-            <NProgress />
-            {children}
-          </RootLayout>
-        </main>
+        <RootLayout>
+          <NProgress />
+          {children}
+        </RootLayout>
       </body>
     </html>
   );

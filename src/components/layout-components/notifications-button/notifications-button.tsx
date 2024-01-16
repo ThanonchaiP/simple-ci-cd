@@ -1,7 +1,6 @@
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import Badge from '@mui/material/Badge';
 import IconButton from '@mui/material/IconButton';
-import SvgIcon from '@mui/material/SvgIcon';
 import Tooltip from '@mui/material/Tooltip';
 import type { FC } from 'react';
 
@@ -18,9 +17,7 @@ export const NotificationsButton: FC = () => {
           onClick={popover.handleOpen}
         >
           <Badge color="error" badgeContent={2}>
-            <SvgIcon>
-              <NotificationsNoneIcon />
-            </SvgIcon>
+            <NotificationsNoneIcon />
           </Badge>
         </IconButton>
       </Tooltip>

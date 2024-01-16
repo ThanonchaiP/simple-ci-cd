@@ -3,23 +3,24 @@ import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import Image from 'next/image';
 import type { FC } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { usePopover } from '@/hooks/use-popover';
 
 import { LanguagePopover } from './language-popover';
 
-type Language = 'en' | 'de' | 'es';
+type Language = 'en' | 'th';
 
 const languages: Record<Language, string> = {
   en: '/assets/flags/flag-uk.svg',
-  de: '/assets/flags/flag-de.svg',
-  es: '/assets/flags/flag-es.svg',
+  th: '/assets/flags/flag-de.svg',
 };
 
 export const LanguageSwitch: FC = () => {
+  const { i18n } = useTranslation();
   const popover = usePopover<HTMLButtonElement>();
 
-  const flag = languages.en;
+  const flag = languages[i18n.language as Language];
 
   return (
     <>
