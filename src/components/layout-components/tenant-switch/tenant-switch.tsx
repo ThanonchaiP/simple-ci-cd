@@ -7,11 +7,9 @@ import type { SxProps } from '@mui/system/styleFunctionSx';
 import PropTypes from 'prop-types';
 import type { FC } from 'react';
 
-import { usePopover } from '@/hooks/use-popover';
+import { usePathname, usePopover } from '@/hooks';
 
 import { TenantPopover } from './tenant-popover';
-
-const tenants: string[] = ['Devias', 'Acme Corp'];
 
 interface TenantSwitchProps {
   sx?: SxProps;
@@ -21,6 +19,23 @@ export const TenantSwitch: FC<TenantSwitchProps> = (
   props
 ) => {
   const popover = usePopover<HTMLButtonElement>();
+  const pathname = usePathname();
+
+  const currentModule = pathname.split('/')?.[3] ?? '';
+  const currentApp = pathname.split('/')?.[2] ?? '';
+
+  const getModule = (module: string): string => {
+    switch (module) {
+      case 'log-management':
+        return 'LM';
+      case 'siem':
+        return 'SIEM';
+      case 'threat-intelligence':
+        return 'CTI';
+      default:
+        return 'Modules';
+    }
+  };
 
   return (
     <>
@@ -35,22 +50,27 @@ export const TenantSwitch: FC<TenantSwitchProps> = (
             Web Portal
           </Typography>
           <Typography color="neutral.400" variant="body2">
-            Modules
+            {getModule(currentModule)}
           </Typography>
         </Box>
-        <IconButton
-          onClick={popover.handleOpen}
-          ref={popover.anchorRef}
-        >
-          <KeyboardArrowDownIcon sx={{ fontSize: 16 }} />
-        </IconButton>
+
+        {pathname.split('/')?.[3] && (
+          <IconButton
+            onClick={popover.handleOpen}
+            ref={popover.anchorRef}
+          >
+            <KeyboardArrowDownIcon
+              sx={{ fontSize: 16 }}
+            />
+          </IconButton>
+        )}
       </Stack>
+
       <TenantPopover
         anchorEl={popover.anchorRef.current}
-        onChange={popover.handleClose}
         onClose={popover.handleClose}
         open={popover.open}
-        tenants={tenants}
+        currentApp={currentApp}
       />
     </>
   );

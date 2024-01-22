@@ -9,11 +9,11 @@ import {
   Typography,
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 import { HorizontalLayout } from '@/components/layout-components/horizontal-layout';
 import { useCssVars } from '@/components/layout-components/horizontal-layout/use-css-vars';
+import { RouterLink } from '@/components/util-components';
 import { APP_ICONS } from '@/config/app-icon';
 import { APP_ITEMS } from '@/config/module';
 import { APPS } from '@/config/module';
@@ -21,7 +21,6 @@ import { MODULE_ICONS } from '@/config/moduleIcon';
 
 export default function AppPage() {
   const theme = useTheme();
-  const router = useRouter();
   const cssVars = useCssVars('evident');
 
   const [currentModule, setCurrentModule] = useState(
@@ -92,13 +91,11 @@ export default function AppPage() {
                     transform: 'translateY(-5%)',
                   },
                 }}
-                onClick={() =>
-                  router.push(item.path, {
-                    scroll: false,
-                  })
-                }
               >
                 <Box
+                  component={RouterLink}
+                  href={item.path}
+                  scroll={false}
                   sx={{
                     display: 'flex',
                     gap: 3,

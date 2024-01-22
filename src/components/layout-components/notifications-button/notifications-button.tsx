@@ -4,7 +4,7 @@ import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import type { FC } from 'react';
 
-import { usePopover } from '@/hooks/use-popover';
+import { usePopover } from '@/hooks';
 
 export const NotificationsButton: FC = () => {
   const popover = usePopover<HTMLButtonElement>();

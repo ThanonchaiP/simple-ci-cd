@@ -13,5 +13,5 @@ export default function LogManagementPage() {
     });
   }, [pathname, router]);
 
-  return <></>;
+  return null;
 }

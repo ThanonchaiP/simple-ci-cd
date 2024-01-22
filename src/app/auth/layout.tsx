@@ -9,7 +9,7 @@ import {
 } from '@mui/material';
 import NextLink from 'next/link';
 
-import { Logo } from '@/components/util-components/logo';
+import { Logo } from '@/components/util-components';
 
 const Wrapper = styled('div')({
   backgroundImage: `url(/img/gradient-bg.svg)`,

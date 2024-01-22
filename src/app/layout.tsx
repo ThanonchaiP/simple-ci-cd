@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
 import { RootLayout } from '@/components/layout-components/root-layout';
-import { NProgress } from '@/components/util-components/nprogress';
+import { NProgress } from '@/components/util-components';
 
 import '../globals.css';
 

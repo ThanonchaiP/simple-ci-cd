@@ -104,6 +104,7 @@ export const LanguagePopover: FC<LanguagePopoverProps> = (
                     height={28}
                     alt={option.label}
                     src={option.icon}
+                    placeholder="empty"
                   />
                 </Box>
               </ListItemIcon>

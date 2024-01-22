@@ -8,7 +8,7 @@ import type { FC, ReactNode } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import { NextAppDirEmotionCacheProvider } from 'tss-react/next/appDir';
 
-import { Toaster } from '@/components/util-components/toaster';
+import { Toaster } from '@/components/util-components';
 import { SettingsProvider } from '@/contexts/settings';
 import { createTheme } from '@/theme';
 import { Settings } from '@/types/setting';

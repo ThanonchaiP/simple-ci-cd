@@ -44,6 +44,7 @@ export const ColumnAction = ({
         aria-controls={open ? 'action-menu' : undefined}
         aria-expanded={open ? 'true' : undefined}
         aria-haspopup="true"
+        sx={{ padding: 0 }}
         onClick={handleClick}
       >
         <MoreVertIcon />
@@ -65,7 +66,10 @@ export const ColumnAction = ({
         {menuItem &&
           menuItem.map((item) => (
             <MenuItem
-              onClick={item.onClick}
+              onClick={() => {
+                item.onClick?.();
+                handleClose();
+              }}
               key={item.key}
             >
               {item.icon && (

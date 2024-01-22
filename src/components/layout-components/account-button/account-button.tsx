@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import ButtonBase from '@mui/material/ButtonBase';
 import type { FC } from 'react';
 
-import { usePopover } from '@/hooks/use-popover';
+import { usePopover } from '@/hooks';
 
 import { AccountPopover } from './account-popover';
 

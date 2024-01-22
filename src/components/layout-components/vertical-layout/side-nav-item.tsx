@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import type { FC, ReactNode } from 'react';
 import { useCallback, useState } from 'react';
 
-import { RouterLink } from '@/components/util-components/router-link';
+import { RouterLink } from '@/components/util-components';
 
 interface SideNavItemProps {
   active?: boolean;

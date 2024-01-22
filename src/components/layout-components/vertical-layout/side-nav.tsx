@@ -9,10 +9,12 @@ import PropTypes from 'prop-types';
 import type { FC } from 'react';
 import { useMemo } from 'react';
 
-import { Logo } from '@/components/util-components/logo';
-import { RouterLink } from '@/components/util-components/router-link';
-import { Scrollbar } from '@/components/util-components/scrollbar';
-import { usePathname } from '@/hooks/use-pathname';
+import {
+  Scrollbar,
+  RouterLink,
+  Logo,
+} from '@/components/util-components';
+import { usePathname } from '@/hooks';
 import { Section } from '@/types/navigation';
 import { NavColor } from '@/types/setting';
 

@@ -11,8 +11,8 @@ import {
   Dropdown,
   DropdownMenu,
   DropdownTrigger,
-} from '@/components/util-components/dropdown';
-import { RouterLink } from '@/components/util-components/router-link';
+} from '@/components/util-components';
+import { RouterLink } from '@/components/util-components';
 
 interface Item {
   disabled?: boolean;

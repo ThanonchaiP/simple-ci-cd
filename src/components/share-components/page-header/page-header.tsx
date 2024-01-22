@@ -7,11 +7,12 @@ type PageHeaderProps = {
 
 export const PageHeader = ({
   title,
+  extra,
 }: PageHeaderProps) => {
   return (
     <Stack
       sx={{
-        mb: 3,
+        mb: 6,
         backgroundColor: 'transparent',
       }}
       direction="row"
@@ -19,6 +20,7 @@ export const PageHeader = ({
       alignItems="center"
     >
       <Typography variant="h4">{title}</Typography>
+      {extra}
     </Stack>
   );
 };

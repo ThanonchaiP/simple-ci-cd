@@ -5,7 +5,7 @@ import Image from 'next/image';
 import type { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { usePopover } from '@/hooks/use-popover';
+import { usePopover } from '@/hooks';
 
 import { LanguagePopover } from './language-popover';
 
@@ -43,6 +43,7 @@ export const LanguageSwitch: FC = () => {
               height={28}
               src={flag}
               alt="Language"
+              placeholder="empty"
             />
           </Box>
         </IconButton>
