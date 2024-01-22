@@ -38,7 +38,7 @@ jobs:
           attach-workspace: true
           dockerfile: Dockerfile
           path: .
-          repo: cyber/console/console-ui
+          repo: onefence/console/console-ui
           # repo: cyber/non/test
           tag: $GIT_COMMIT_MESSAGE
 

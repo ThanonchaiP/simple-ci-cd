@@ -1,4 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+'use client';
+
 import PropTypes from 'prop-types';
 import type { FC, MouseEvent, ReactNode } from 'react';
 import { useCallback, useRef, useState } from 'react';

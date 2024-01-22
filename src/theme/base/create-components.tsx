@@ -280,7 +280,7 @@ export const createComponents = (): Components => {
     },
     MuiLink: {
       defaultProps: {
-        underline: 'hover',
+        underline: 'none',
       },
       styleOverrides: {
         root: {

@@ -7,7 +7,7 @@ import type { Theme } from '@mui/material/styles/createTheme';
 import Typography from '@mui/material/Typography';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
-import { RouterLink } from '@/components/util-components/router-link';
+import { RouterLink } from '@/components/util-components';
 
 const NotFound = () => {
   const mdUp = useMediaQuery((theme: Theme) =>

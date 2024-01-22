@@ -8,7 +8,7 @@ import {
 } from '@/config/module';
 import { Section } from '@/types/navigation';
 
-const path = `${APP_PATH}${CYBER_SECURITY_PATH}${CYBER_SECURITY_LOG_MANAGEMENT_PATH}`;
+const path = `/${APP_PATH}/${CYBER_SECURITY_PATH}/${CYBER_SECURITY_LOG_MANAGEMENT_PATH}`;
 
 export const logManagementItem: Section[] = [
   {

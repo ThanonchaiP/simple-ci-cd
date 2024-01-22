@@ -1,14 +1,17 @@
+import { Typography } from '@mui/material';
 import MenuItem from '@mui/material/MenuItem';
 import Popover from '@mui/material/Popover';
 import PropTypes from 'prop-types';
 import type { FC } from 'react';
 
+import { RouterLink } from '@/components/util-components';
+import { getApps } from '@/utils';
+
 interface TenantPopoverProps {
   anchorEl: null | Element;
-  onChange?: (tenant: string) => void;
   onClose?: () => void;
   open?: boolean;
-  tenants: string[];
+  currentApp: string;
 }
 
 export const TenantPopover: FC<TenantPopoverProps> = (
@@ -16,12 +19,13 @@ export const TenantPopover: FC<TenantPopoverProps> = (
 ) => {
   const {
     anchorEl,
-    onChange,
     onClose,
     open = false,
-    tenants,
+    currentApp,
     ...other
   } = props;
+
+  const appItems = getApps(currentApp);
 
   return (
     <Popover
@@ -38,15 +42,28 @@ export const TenantPopover: FC<TenantPopoverProps> = (
       keepMounted
       onClose={onClose}
       open={open}
-      PaperProps={{ sx: { width: 180 } }}
       {...other}
     >
-      {tenants.map((tenant) => (
-        <MenuItem
-          key={tenant}
-          onClick={() => onChange?.(tenant)}
-        >
-          {tenant}
+      {appItems.map((item) => (
+        <MenuItem key={item.id}>
+          <Typography
+            component={RouterLink}
+            href={item.path ?? '/apps'}
+            scroll={false}
+            onClick={onClose}
+          >
+            <Typography
+              variant="subtitle2"
+              sx={{
+                maxWidth: 180,
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+                whiteSpace: 'nowrap',
+              }}
+            >
+              {item.title}
+            </Typography>
+          </Typography>
         </MenuItem>
       ))}
     </Popover>
@@ -55,8 +72,7 @@ export const TenantPopover: FC<TenantPopoverProps> = (
 
 TenantPopover.propTypes = {
   anchorEl: PropTypes.any,
-  onChange: PropTypes.func,
   onClose: PropTypes.func,
   open: PropTypes.bool,
-  tenants: PropTypes.array.isRequired,
+  currentApp: PropTypes.string.isRequired,
 };

@@ -81,7 +81,6 @@ const LoginPage = () => {
           />
         </Stack>
         <LoadingButton
-          data-testid="sign-in-button"
           fullWidth
           size="large"
           sx={{ mt: 3 }}

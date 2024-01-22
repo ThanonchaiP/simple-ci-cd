@@ -4,7 +4,7 @@ import {
   LogIcon,
   SiemIcon,
   ThreatIcon,
-} from '@/components/util-components/icon';
+} from '@/components/util-components';
 
 type ModuleIcons = {
   [key: string]: ReactNode;

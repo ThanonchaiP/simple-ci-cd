@@ -55,7 +55,7 @@ export const createComponents = ({
           color: palette.action!.active,
         },
         root: {
-          borderColor: palette.neutral![200],
+          // borderColor: palette.neutral![200],
         },
       },
     },

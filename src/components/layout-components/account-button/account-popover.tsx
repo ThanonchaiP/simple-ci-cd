@@ -13,8 +13,8 @@ import PropTypes from 'prop-types';
 import type { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { RouterLink } from '@/components/util-components/router-link';
-import { useRouter } from '@/hooks/use-router';
+import { RouterLink } from '@/components/util-components';
+import { useRouter } from '@/hooks';
 import { tokens } from '@/locales/tokens';
 
 interface AccountPopoverProps {

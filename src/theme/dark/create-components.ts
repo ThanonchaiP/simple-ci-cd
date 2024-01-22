@@ -52,7 +52,7 @@ export const createComponents = ({
           color: palette.action!.active,
         },
         root: {
-          borderColor: palette.neutral![700],
+          // borderColor: palette.neutral![700],
         },
       },
     },

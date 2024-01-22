@@ -7,7 +7,7 @@ import {
 } from '@/config/module';
 import { Section } from '@/types/navigation';
 
-const path = `${APP_PATH}${CYBER_SECURITY_PATH}${CYBER_SECURITY_SIEM_PATH}`;
+const path = `/${APP_PATH}/${CYBER_SECURITY_PATH}/${CYBER_SECURITY_SIEM_PATH}`;
 
 export const siemItem: Section[] = [
   {

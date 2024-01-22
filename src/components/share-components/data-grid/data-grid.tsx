@@ -1,8 +1,9 @@
-import { LinearProgress } from '@mui/material';
 import {
   DataGrid as MuiDataGrid,
   type DataGridProps,
 } from '@mui/x-data-grid';
+
+import { NoRowsOverlay } from './no-rows-overlay';
 
 export const DataGrid = ({
   sx,
@@ -13,13 +14,10 @@ export const DataGrid = ({
     <MuiDataGrid
       slots={{
         columnMenu: () => null,
-        loadingOverlay: () => <LinearProgress />,
+        noRowsOverlay: () => <NoRowsOverlay />,
         ...slots,
       }}
       sx={{
-        '& .MuiDataGrid-overlayWrapperInner': {
-          height: 'auto !important',
-        },
         '& .MuiDataGrid-row': {
           '& .MuiDataGrid-withBorderColor': {
             borderBottom: '1px solid',
@@ -57,6 +55,7 @@ export const DataGrid = ({
       disableColumnMenu={true}
       checkboxSelection={false}
       disableRowSelectionOnClick
+      getRowId={(row) => row.id}
       {...props}
     />
   );

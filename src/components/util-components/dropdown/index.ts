@@ -1,3 +1,3 @@
-export { Dropdown } from './dropdown';
-export { DropdownTrigger } from './dropdown-trigger';
-export { DropdownMenu } from './dropdown-menu';
+export * from './dropdown';
+export * from './dropdown-trigger';
+export * from './dropdown-menu';
